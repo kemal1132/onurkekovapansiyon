@@ -1,0 +1,17 @@
+.hide {
+
+
+}
+
+.show{
+
+
+}
+
+.navbar{
+    background-color: rgb(65, 175, 219);
+    color:aqua;
+    position:fixed;
+    height:5vh;
+    width: 100vw;
+}
