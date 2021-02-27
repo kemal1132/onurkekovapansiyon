@@ -1,17 +1,22 @@
 .hide {
-
-
+    top:-5vh;
 }
 
 .show{
-
-
+    top:0;
 }
 
 .navbar{
     background-color: rgb(65, 175, 219);
     color:aqua;
     position:fixed;
+    height:5vh;
+    width: 100vw;
+    transition-property:top;
+    transition-duration: 1s;
+}
+
+.navbarplaceholder{
     height:5vh;
     width: 100vw;
 }

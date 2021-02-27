@@ -7,7 +7,8 @@ class CollapsingNavBar extends Component{
         this.state = {scrollingDown: false, lastScrollPosition:0}
         this.handleScroll=this.handleScroll.bind(this);
     }
- 
+     
+     
     handleScroll(e){
         if(window.scrollY>this.state.lastScrollPosition){
             this.setState({scrollingDown:true, lastScrollPosition:window.scrollY});
@@ -29,7 +30,11 @@ class CollapsingNavBar extends Component{
         window.removeEventListener('scroll', throttleFunction(this.handleScroll, 1000));
     }
     render(){
-        return <div className={`${styles.navbar} ${this.state.scrollingDown?styles.hide:styles.show}`}>{this.props.children}</div>;
+        return <div className={`${styles.navbar} ${this.state.scrollingDown?styles.hide:styles.show}`}>
+                    <div className={'styles.navbarplaceholder'}>
+                        {this.props.children}
+                    </div>    
+                </div>;
     }
 }
 
