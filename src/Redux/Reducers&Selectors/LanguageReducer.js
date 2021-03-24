@@ -1,8 +1,9 @@
 import ActionTypes from "../../Constants/ActionTypes";
+import InitialState from "../../Constants/InitialState";
 
-const initialState = "English"
 
-const language = (state=initialState, action) => {
+
+const language = (state=InitialState.language, action) => {
     if (action.type === ActionTypes.changeLanguage) {
         state=action.payload;
         return state;
