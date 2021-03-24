@@ -1,6 +1,6 @@
-import language from "./Languages";
+import {English} from "./Languages";
 const initialState = {
-    language:language.English
+    language:English
 }
 
 export default Object.freeze(initialState);

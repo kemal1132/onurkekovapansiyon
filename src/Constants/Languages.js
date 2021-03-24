@@ -1,4 +1,2 @@
-export default Object.freeze({
-    Turkish: "Turkish",
-    English: "English"
-});
+export const Turkish="Turkish";
+export const English="English";
