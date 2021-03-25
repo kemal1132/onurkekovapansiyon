@@ -1,4 +1,4 @@
-import ActionTypes from "../../Constants/ActionTypes";
+import {changeLanguage} from "../../Constants/ActionTypes";
 import InitialState from "../../Constants/InitialState";
 
 /** Redux Reducer for language variable
@@ -9,7 +9,7 @@ import InitialState from "../../Constants/InitialState";
  */
 
 const language = (state=InitialState.language, action) => {
-    if (action.type === ActionTypes.changeLanguage) {
+    if (action.type === changeLanguage) {
         state=action.payload;
         return state;
     }else{

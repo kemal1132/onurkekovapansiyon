@@ -8,7 +8,7 @@
  * @author Kemal Altan Demirel
  * @date 2021/02/27
  */
-var throttleFunction = (func, limit,...args) =>{
+const throttleFunction = (func, limit,...args) =>{
     var isWaiting = false;                 
     return function (...args) {             
         if (!isWaiting) {                                     
