@@ -1,6 +1,5 @@
-import {Turkish} from "../Constants/Languages";
-import TurkishText from "../Constants/Turkish";
-import EnglishText from "../Constants/English";
+import languagesText, {Turkish, English} from "../Constants/Languages";
+
 
 /** A method that gets strings depending on language provided, check languages from Constants/Languages. Provide the key of the text as a second field as string
  * @param language language constant from languages file
@@ -10,12 +9,11 @@ import EnglishText from "../Constants/English";
  * @example <Navlink id="ReservationLink">{getLanguageText(useSelector(languageSelector), "Reservation")}<\Navlink> 
  */
 const getLanguageText = (language, textFieldID)=>{
-    let languageText = [EnglishText, TurkishText]
     switch(language){
         case Turkish:
-            return languageText[1][textFieldID];
+            return languagesText[Turkish][textFieldID];
         default:
-            return languageText[0][textFieldID];
+            return languagesText[English][textFieldID];
     }
 };
 
