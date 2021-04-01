@@ -30,10 +30,14 @@ class CollapsingNavBar extends Component{
         window.removeEventListener('scroll', throttleFunction(this.handleScroll, 1000));
     }
     render(){
-        return <div className={`${styles.navbar} ${this.state.scrollingDown?styles.hide:styles.show}`}>
-                    <div className={'styles.navbarplaceholder'}>
-                        {this.props.children}
-                    </div>    
+        return <div>
+                    <div className={styles.navbarplaceholder}>
+                        
+                    </div>   
+                    <div  className={`${styles.navbar} ${this.state.scrollingDown?styles.hide:styles.show}`}>
+                         {this.props.children}
+                    </div>
+                     
                 </div>;
     }
 }

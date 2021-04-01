@@ -10,10 +10,12 @@ import icon from "../Assets/Icon.png";
 import EnglishFlag from "../Assets/EnglishFlag.png";
 import TurkishFlag from "../Assets/TurkishFlag.png";
 
+import styles from "./NavBar.module.css"
+
 const Navbar = ()=>{
     const dispatch = useDispatch();
     return <div id="navBar">
-        <img src={icon} alt="OnurPension" id="icon"></img>
+        <NavLink to="/"><img className={styles.img} src={icon} alt="OnurPension"></img></NavLink>
         <NavLink to="/Reservation">{`${getLanguageText(useSelector(LanguageSelector),  "Reservation")}`}</NavLink>
         <NavLink to="/Rooms">{`${getLanguageText(useSelector(LanguageSelector),  "Rooms")}`}</NavLink>
         <NavLink to="/Restaurant">{`${getLanguageText(useSelector(LanguageSelector),  "Restaurant")}`}</NavLink>
