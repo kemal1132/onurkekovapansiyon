@@ -1,49 +1,39 @@
 import React, {Component } from "react";
+import {connect} from "react-redux";
+import ReservationAction from "../Redux/Actions/ReservationAction";
+import ReservationSelector from "../Redux/Reducers&Selectors/ReservationSelector"
 
 class ReservationPage extends Component{
     constructor(props){
         super(props);
         this.handleInputChange= this.handleInputChange.bind(this);
-        this.state = {
-            name : "",
-            telephone: "",
-            email: "",
-            numberOfPeople: 0,
-            numberOfSingleRooms: 0,
-            numberOfDoubleRooms: 0,
-            numberOfTripleRooms: 0,
-            dateOfArrival:undefined,
-            dateOfDeparture:undefined,
-            expectedArrivalHour:undefined,
-            remarksAndWishes: ""
-        }
+       
     }
     handleInputChange(event){ //To do Handle state in Redux
         const target = event.target;
         const value = target.value;
         const name = target.name;
-    
-        this.setState({
-          [name]: value
-        });
+        
+        this.props.dispatch(ReservationAction({[name]: value}));
+       
     }
     render(){
         return <form>
             <label>
                 Your Name
-                <input name="name" type="text" onChange={this.handleInputChange} placeholder="Onur Altan"/> 
+                <input name="name" type="text" onChange={this.handleInputChange} placeholder="Onur Altan" value={this.props.reservation.name}/> 
             </label>
             <label>
                 Your telephone (country included)
-                <input name="telephone" type="text" onChange={this.handleInputChange} placeholder="00902428742071"/> 
+                <input name="telephone" type="text" onChange={this.handleInputChange} placeholder="00902428742071" value={this.props.reservation.telephone} /> 
             </label>
             <label>
                 Your email
-                <input name="email" type="text" onChange={this.handleInputChange} placeholder="00902428742071"/> 
+                <input name="email" type="text" onChange={this.handleInputChange} placeholder="00902428742071" value={this.props.reservation.email}/> 
             </label>
             <label>
                 Number of people
-                 <input name="numberOfPeople" type="text" onChange={this.handleInputChange} placeholder="5"/> 
+                 <input name="numberOfPeople" type="text" onChange={this.handleInputChange} placeholder="5" value={this.props.reservation.numberOfPeople}/> 
             </label>
             <label>
                 Single Room
@@ -65,26 +55,29 @@ class ReservationPage extends Component{
             </label>
             <label>
                 Date of Arrival
-                <input name="dateOfArrival" type="date" onChange={this.handleInputChange} placeholder="5"/> 
+                <input name="dateOfArrival" type="date" onChange={this.handleInputChange} placeholder="5" value={this.props.reservation.dateOfArrival}/> 
             </label>
             <label>
                 Date of Departure
-                <input name="dateOfDeparture" type="date" onChange={this.handleInputChange} placeholder="5"/> 
+                <input name="dateOfDeparture" type="date" onChange={this.handleInputChange} placeholder="5" value={this.props.reservation.dateOfDeparture}/> 
             </label>
             <label>
                 Expected arrival hour
-                <input name="expectedArrivalHour" type="time" onChange={this.handleInputChange} placeholder="5"/> 
+                <input name="expectedArrivalHour" type="time" onChange={this.handleInputChange} placeholder="5" value={this.props.reservation.expectedArrivalHour}/> 
             </label>
 
             <label>
                 Remarks and Wishes
-                <input name="remarksAndWishes" type="text" onChange={this.handleInputChange} placeholder="5"/> 
+                <input name="remarksAndWishes" type="text" onChange={this.handleInputChange} placeholder="5" value={this.props.reservation.remarksAndWishes}/> 
 
             </label>
+
             
-            <p>{this.state.dateOfArrival}</p>
+          
         </form>
     }
 }
 
-export default ReservationPage;
+
+
+export default connect(state=>state,null)(ReservationPage);
